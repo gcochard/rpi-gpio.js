@@ -65,7 +65,9 @@ var PINS = {
 
         // Model B+ pins
         // 27: ID_SD
+        '27': 0,
         // 28: ID_SC
+        '28': 1,
         '29': 5,
         // 30: ground
         '31': 6,
@@ -333,34 +335,7 @@ function Gpio() {
 
     function getPinBcm(channel) {
         channel = parseInt(channel, 10);
-        return [
-            3,
-            5,
-            7,
-            8,
-            10,
-            11,
-            12,
-            13,
-            15,
-            16,
-            18,
-            19,
-            21,
-            22,
-            23,
-            24,
-            26,
-            29,
-            31,
-            32,
-            33,
-            35,
-            36,
-            37,
-            38,
-            40
-        ].indexOf(channel) !== -1 ? (channel + '') : null;
+        return (channel >= 0 && channel <= 27)?channel:null;
     };
 
     /**
